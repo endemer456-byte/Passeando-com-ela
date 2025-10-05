@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passeando no Via Norte com minha amada</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+  body { margin: 0; font-family: 'Great Vibes', cursive; background: url('https://i.ibb.co/7r6Qh6P/floral-background.jpg') no-repeat center center fixed; background-size: cover; color: #5c2a2a; overflow-x: hidden; }
+  .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+  .foto { width: 100%; margin: 40px 0; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: transform 1s, opacity 1s; opacity: 0; transform: translateY(50px); }
+  .foto.aparecer { opacity: 1; transform: translateY(0); }
+  h1 { text-align: center; margin: 20px 0; }
+  .botao-final { display: block; width: 80%; margin: 50px auto; padding: 15px; text-align: center; background: #f4c2c2; color: #5c2a2a; border: none; border-radius: 25px; font-size: 1.5em; cursor: pointer; box-shadow: 0 6px 15px rgba(0,0,0,0.2); transition: background 0.3s; }
+  .botao-final:hover { background: #f8d1d1; }
+  audio { display: none; }
+</style>
+</head>
+<body>
+<audio autoplay loop>
+  <source src="sua-musica.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+<div class="container">
+  <h1>Passeando no Via Norte com minha amada</h1>
+  <img src="foto1.jpg" alt="Foto 1" class="foto">
+  <img src="foto2.jpg" alt="Foto 2" class="foto">
+  <img src="foto3.jpg" alt="Foto 3" class="foto">
+  <img src="foto4.jpg" alt="Foto 4" class="foto">
+  <button class="botao-final">🌹 Feito com amor</button>
+</div>
+<script>
+  const fotos = document.querySelectorAll('.foto');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('aparecer');
+      }
+    });
+  });
+  fotos.forEach(foto => observer.observe(foto));
+</script>
+</body>
+</html>
